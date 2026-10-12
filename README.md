@@ -17,6 +17,7 @@
 - [agents/openai.yaml](agents/openai.yaml)：Skill 展示信息。
 - [web/AI图文故事制作规范.md](web/AI图文故事制作规范.md)：GPT 网页版完整规范。
 - [templates/HANDOFF.md](templates/HANDOFF.md)：空白项目交接模板。
+- [完整故事示例：最后一场放映](examples/last-screening/README.md)：8 张图文故事的启动指令、故事稿、资产提示词、分镜、逐页提示词、审核与交接。
 - [LICENSE](LICENSE)：CC BY-NC 4.0 许可证。
 - [NOTICE.md](NOTICE.md)：来源与改编说明。
 
@@ -50,7 +51,7 @@
 
 ## 发布范围
 
-公开完整有效规则和空白交接模板。仓库不附带个人电脑路径、登录凭据、具体项目源稿、角色图片、聊天记录或已淘汰旧稿。
+公开完整有效规则、空白交接模板与独立原创教学示例。仓库不附带个人电脑路径、登录凭据、私人项目源稿、角色图片、聊天记录或已淘汰旧稿。
 旧版本的规则已被当前精简版替代，不作为有效规范发布。
 
 ## 来源与许可
