@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI 图文故事制作"
+  short_description: "故事、四视图、手机纪实分镜与连续性审核"
+  default_prompt: "使用 $ai-story-production，根据当前故事和正式参考规划分镜、提示词与连续性审核。"
