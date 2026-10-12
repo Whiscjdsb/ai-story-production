@@ -17,7 +17,7 @@
 - [agents/openai.yaml](agents/openai.yaml)：Skill 展示信息。
 - [web/AI图文故事制作规范.md](web/AI图文故事制作规范.md)：GPT 网页版完整规范。
 - [templates/HANDOFF.md](templates/HANDOFF.md)：空白项目交接模板。
-- [完整故事示例：最后一场放映](examples/last-screening/README.md)：8 张图文故事的启动指令、故事稿、资产提示词、分镜、逐页提示词、审核与交接。
+- [完整故事示例：最后一场放映](examples/last-screening/README.md)：6 张图文故事的启动指令、故事稿、资产提示词、分镜、逐页提示词、审核与交接。
 - [LICENSE](LICENSE)：CC BY-NC 4.0 许可证。
 - [NOTICE.md](NOTICE.md)：来源与改编说明。
 
@@ -25,23 +25,58 @@
 
 ### Codex
 
-把本目录保存为技能目录下的 `ai-story-production` 文件夹，保留 `SKILL.md` 和 `agents/`。
-在支持技能的环境中明确调用：
+1. 打开本仓库，点击绿色 **Code → Download ZIP**，解压。
+2. 把解压后的仓库文件夹改名为 `ai-story-production`，确认打开它就能看到 `SKILL.md`，不要多套一层同名目录。
+3. 把整个文件夹放到下面的个人技能目录；目录不存在时先创建。
+
+| 系统 | 最终文件位置 |
+|---|---|
+| Windows | `%USERPROFILE%\.agents\skills\ai-story-production\SKILL.md` |
+| macOS / Linux | `~/.agents/skills/ai-story-production/SKILL.md` |
+
+项目内安装也可以放在项目根目录的 `.agents/skills/ai-story-production/`，让整个项目共用。
+路径与技能发现方式依据 [OpenAI 官方技能文档](https://learn.chatgpt.com/docs/build-skills)。Codex 会自动发现变化；未出现时重启 Codex。已装过同名 Skill 的用户先确认要使用哪一份，避免重复安装。
+
+4. 在能访问这些本地文件的 Codex 会话里发送：
 
 ```text
-使用 $ai-story-production，把这个故事整理成分镜和逐张提示词。
-我自己生成图片。
+使用 $ai-story-production，从该 Skill 的安装目录读取 examples/last-screening/README.md。
+按《最后一场放映》制作 6 张图文故事。我自己生成图片。
+先交付录音机资产提示词和 P01 提示词，不要生成图片。
+目前没有任何已生成或通过的参考图。
 ```
 
 ### GPT 网页版
 
-把 `web/AI图文故事制作规范.md` 上传到当前会话，要求按它执行，再上传当前故事和必要参考图。
-新会话需要重新提供规范、最新交接和正式参考。上传文件不代表模型已经读取，实际行为以当前会话能力为准。
+下载并解压仓库后，新建聊天，上传以下两个文件：
+
+- `web/AI图文故事制作规范.md`：制作规则。
+- `examples/last-screening/README.md`：完整故事示例；可先改名为“最后一场放映示例.md”，便于区分两个 README。
+
+然后发送：
 
 ```text
-读取我上传的 AI 图文故事制作规范，按它规划故事。
-先完成故事逻辑和分镜，暂时只交付提示词。
+先读取我上传的制作规范和《最后一场放映》示例。
+按示例制作 6 张图文故事，我自己生成图片。
+先交付录音机资产提示词和 P01 提示词，不要生成图片。
+目前没有任何已生成或通过的参考图。
 ```
+
+### 接下来怎么继续
+
+先按资产提示词制作录音机参考，把结果发给助手审核；你明确通过后，才保存为 `RECORDER-LOCKED`。
+然后制作 P01，确认风格并通过后保存为 `P01-LOCKED`。每次只处理下一页，按示例上传该页真正需要的参考图。
+
+```text
+这是我生成的录音机参考，请按示例审核。只给审核意见。
+```
+
+```text
+录音机参考通过。请给 P01 正式提示词与参考清单。
+```
+
+未通过时先返工，不能把失败图当正式参考。新会话重新提供规范、示例、最新交接和所需参考图。
+上传文件不代表助手已读取，必须以实际读取和当前会话能力为准。
 
 ## 默认规则
 
